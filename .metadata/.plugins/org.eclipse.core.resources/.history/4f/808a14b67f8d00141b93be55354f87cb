@@ -1,0 +1,38 @@
+package edu.sicsr.eventhandler;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
+
+public class CheckedChangeListenerMainActivity extends Activity {
+	private RadioGroup rgCase;
+	private EditText editString;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_checked_change_listener_main);
+		
+		rgCase = (RadioGroup)findViewById(R.id.rgCase);
+		OnCheckedChangeListener listener = new OnCheckedChangeListener() {
+			
+			@Override
+			public void onCheckedChanged(RadioGroup arg0, int id) {
+				switch (id) 
+				{
+				case R.id.lCase:
+				  String new_one= editString.getText().toString().toLowerCase();
+					editString.setText(new_one);
+				  break;
+				case R.id.uCase:
+					  String new_one_again= editString.getText().toString().toUpperCase();
+					break;
+
+				}
+			}
+		};
+	
+	}
+	}
